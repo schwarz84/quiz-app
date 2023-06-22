@@ -42,8 +42,7 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        currentScreen = 'home-screen';
-        selectedAnswers.clear();
+        currentScreen = 'result-screen';
       });
     }
   }
@@ -55,6 +54,9 @@ class _QuizState extends State<Quiz> {
 
     if (currentScreen == 'questions-screen') {
       activeScreen = QuestionsScreen(onSelectedAnswer: chooseAnswers);
+    }
+    if (currentScreen == 'result-screen') {
+      activeScreen = ResultScreen(chosenAnswer: selectedAnswers);
     }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
