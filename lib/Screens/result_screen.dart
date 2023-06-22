@@ -1,10 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Data/questions.dart';
+
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.chosenAnswer});
 
   final List<String> chosenAnswer;
+
+  List<Map<String, Object>> getResumenTotal() {
+    List<Map<String, Object>> resumen = [];
+
+    for(var i = 0; i < chosenAnswer.length; i++) {
+      resumen.add({
+        'question_index': i,
+        'question': questions[i].question,
+        'correct_answer': questions[i].answers[0],
+        'user_answer': chosenAnswer[i]
+      });
+    }
+
+    return resumen;
+  }
 
   @override
   Widget build(context) {
