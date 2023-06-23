@@ -6,9 +6,10 @@ import 'package:quiz_app/Widgets/question_resumen.dart';
 import '../Data/questions.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswer});
+  const ResultScreen({super.key, required this.chosenAnswer, required this.restartQuiz});
 
   final List<String> chosenAnswer;
+  final void Function() restartQuiz;
 
   List<Map<String, Object>> getResumenTotal() {
     List<Map<String, Object>> resumen = [];
@@ -54,7 +55,7 @@ class ResultScreen extends StatelessWidget {
           const SizedBox(height: 30),
           QuestionResumen(resumenData: getResumenData),
           const SizedBox(height: 30),
-          const RestartQuizButton(),
+          RestartQuizButton(restartQuiz: restartQuiz),
         ]),
       ),
     );
