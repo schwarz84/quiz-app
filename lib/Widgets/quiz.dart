@@ -13,20 +13,6 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-
-  // Widget? currentScreen;
-  //
-  // @override
-  // void initState() {
-  //   currentScreen = HomeScreen(switcherScreen);
-  //   super.initState();
-  // }
-
-  // void switcherScreen() {
-  //   setState(() {
-  //     currentScreen = const QuestionsScreen();
-  //   });
-  // }
   final List<String> selectedAnswers = [];
 
   var currentScreen = 'home-screen';
@@ -77,27 +63,3 @@ class _QuizState extends State<Quiz> {
     );
   }
 }
-
-//   @override
-//   Widget build(context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//           body:Container(
-//             decoration: const BoxDecoration(
-//                 gradient: RadialGradient(
-//                   radius: 1.5,
-//                   colors: [
-//                     Colors.red,
-//                     Colors.indigo,
-//                   ],
-//                 )
-//             ),
-//             child: currentScreen == 'home-screen'
-//                 ? HomeScreen(switcherScreen)
-//                 : const QuestionsScreen(),
-//           )
-//       ),
-//     );
-//   }
-// }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/Widgets/widgets.dart';
 import 'package:quiz_app/Widgets/question_resumen.dart';
 
 import '../Data/questions.dart';
@@ -52,31 +53,8 @@ class ResultScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           QuestionResumen(resumenData: getResumenData),
-          // Text(
-          //   'Aca va las respuestas !!!!!!!!!!!1',
-          //   style: GoogleFonts.rajdhani(
-          //       color: Colors.white,
-          //       fontSize: 25,
-          //       fontStyle: FontStyle.italic,
-          //       fontWeight: FontWeight.bold
-          //   ),
-          //   textAlign: TextAlign.center,
-          // ),
           const SizedBox(height: 30),
-          OutlinedButton.icon(
-            onPressed: () {
-
-            },
-            style: OutlinedButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: GoogleFonts.rajdhani(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
-                )
-            ),
-            icon: const Icon(Icons.restart_alt_outlined),
-            label: const Text('Restart Quiz'),
-          )
+          const RestartQuizButton(),
         ]),
       ),
     );

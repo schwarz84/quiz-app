@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'package:quiz_app/Widgets/Widgets.dart';
+import 'package:quiz_app/Widgets/widgets.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen(this.switcherScreen, {super.key});
