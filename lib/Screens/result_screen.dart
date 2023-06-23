@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quiz_app/Widgets/question_resumen.dart';
 
 import '../Data/questions.dart';
 
@@ -25,6 +26,13 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
+
+    final getResumenData = getResumenTotal();
+    final questionCount = questions.length;
+    final rightCount = getResumenData.where((item) {
+      return item['correct_answer'] == item['user_answer'];
+    }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -33,7 +41,7 @@ class ResultScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            chosenAnswer.toString(),
+            'Respondiste $rightCount correctas de un total de $questionCount preguntas',
             style: GoogleFonts.rajdhani(
               color: Colors.white,
               fontSize: 25,
@@ -43,16 +51,17 @@ class ResultScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
-          Text(
-            'Aca va las respuestas !!!!!!!!!!!1',
-            style: GoogleFonts.rajdhani(
-                color: Colors.white,
-                fontSize: 25,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold
-            ),
-            textAlign: TextAlign.center,
-          ),
+          QuestionResumen(resumenData: getResumenData),
+          // Text(
+          //   'Aca va las respuestas !!!!!!!!!!!1',
+          //   style: GoogleFonts.rajdhani(
+          //       color: Colors.white,
+          //       fontSize: 25,
+          //       fontStyle: FontStyle.italic,
+          //       fontWeight: FontWeight.bold
+          //   ),
+          //   textAlign: TextAlign.center,
+          // ),
           const SizedBox(height: 30),
           OutlinedButton.icon(
             onPressed: () {
